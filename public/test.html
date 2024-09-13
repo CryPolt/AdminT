@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyDB Database Viewer</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h2 { color: #333; }
+        .db { margin-bottom: 20px; }
+        .key { font-weight: bold; }
+        .value { margin-left: 20px; color: #555; }
+    </style>
+</head>
+<body>
+<h2>Просмотр баз данных KeyDB</h2>
+
+<?php if (!empty($databases)): ?>
+<?php foreach ($databases as $key => $value): ?>
+<div class="db">
+    <h3>Ключ: <?= htmlspecialchars($key) ?></h3>
+    <p class="value"><?= htmlspecialchars($value) ?></p>
+</div>
+<?php endforeach; ?>
+<?php else: ?>
+<p>Ключи отсутствуют.</p>
+<?php endif; ?>
+</body>
+</html>

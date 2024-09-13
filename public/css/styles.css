@@ -1,0 +1,171 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e2a3a; /* Темный фон страницы */
+    color: #ffffff; /* Белый текст */
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер для контента */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #2d3a50; /* Темный фон контейнера */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
+}
+
+/* Заголовок страницы */
+h1 {
+    color: #ffffff; /* Белый текст */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стили для кнопок выбора базы данных */
+.database-selection button {
+    background-color: #3e4a60; /* Темный фон кнопок */
+    border: 1px solid #3e4a60;
+    border-radius: 5px;
+    color: #ffffff; /* Белый текст */
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.database-selection button:hover {
+    background-color: #2d3a50; /* Светлый фон при наведении */
+}
+
+/* Вкладки */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3e4a60;
+}
+
+.tablink {
+    background-color: #1e2a3a; /* Темный фон вкладок */
+    border: 1px solid #3e4a60;
+    border-radius: 5px 5px 0 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: #ffffff; /* Белый текст */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.tablink.active {
+    background-color: #2d3a50; /* Светлый фон активной вкладки */
+    border-color: #ffffff;
+}
+
+.tablink:hover {
+    background-color: #2d3a50; /* Светлый фон при наведении */
+}
+
+/* Контент вкладок */
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #3e4a60;
+    border-radius: 0 0 5px 5px;
+    background-color: #2d3a50; /* Темный фон контента */
+}
+
+/* Заголовки внутри вкладок */
+h2 {
+    color: #ffffff; /* Белый текст */
+    margin-top: 0;
+}
+
+/* Поля ввода и кнопки */
+input, button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input {
+    border: 1px solid #3e4a60;
+    background-color: #1e2a3a; /* Темный фон полей ввода */
+    color: #ffffff; /* Белый текст */
+    margin-bottom: 10px;
+    width: calc(100% - 22px); /* Учитываем padding и border */
+}
+
+button {
+    background-color: #3e4a60; /* Темный фон кнопок */
+    border: none;
+    color: #ffffff; /* Белый текст */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #2d3a50; /* Светлый фон при наведении */
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #3e4a60;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #2d3a50; /* Темный фон заголовков таблицы */
+}
+
+tr:nth-child(even) {
+    background-color: #1e2a3a; /* Темный фон четных строк таблицы */
+}
+
+/* Пагинация */
+.pagination {
+    text-align: center;
+}
+
+.pagination button {
+    background-color: #3e4a60; /* Темный фон кнопок пагинации */
+    border: 1px solid #3e4a60;
+    color: #ffffff; /* Белый текст */
+    padding: 10px;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #2d3a50; /* Светлый фон при наведении */
+}
+
+/* Стили для формы поиска */
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-container h2 {
+    margin-top: 0;
+}
+
+.search-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container label {
+    margin-bottom: 5px;
+}

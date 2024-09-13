@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Lookup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Phone Lookup</h1>
+<form id="lookup-form">
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" placeholder="+77770000171" required>
+    <button type="submit">Lookup</button>
+</form>
+<div id="result"></div>
+
+<script>
+    document.getElementById('lookup-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const phone = document.getElementById('phone').value;
+        const resultDiv = document.getElementById('result');
+
+        fetch(`query.php?phone=${encodeURIComponent(phone)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+                } else {
+                    if (data.length > 0) {
+                        let html = '<table border="1"><tr>';
+                        // Create table header
+                        Object.keys(data[0]).forEach(key => {
+                            html += `<th>${key}</th>`;
+                        });
+                        html += '</tr>';
+                        // Create table rows
+                        data.forEach(row => {
+                            html += '<tr>';
+                            Object.values(row).forEach(value => {
+                                html += `<td>${value}</td>`;
+                            });
+                            html += '</tr>';
+                        });
+                        html += '</table>';
+                        resultDiv.innerHTML = html;
+                    } else {
+                        resultDiv.innerHTML = '<p>No results found.</p>';
+                    }
+                }
+            })
+            .catch(error => {
+                resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+            });
+    });
+</script>
+</body>
+</html>
