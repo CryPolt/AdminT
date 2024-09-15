@@ -2,7 +2,7 @@
 
 function isPortAvailable($port)
 {
-    $connection = @fsockopen('127.0.0.1', $port);
+    $connection = @fsockopen('10.23.247.5', $port);
     if ($connection) {
         fclose($connection);
         return false;
@@ -10,14 +10,19 @@ function isPortAvailable($port)
     return true;
 }
 
-$port = 8000;
+$port = 9605;
 while (!isPortAvailable($port)) {
     $port++;
 }
 
 echo "Запуск сервера на порту: $port\n";
 $documentRoot = __DIR__ . '/public';
-$command = "php -S 127.0.0.1:$port -t $documentRoot";
+$command = "php -S 10.23.247.5:$port -t $documentRoot";
+
+// Запуск команды в фоновом режиме с использованием nohup
+$command = "nohup $command > /dev/null 2>&1 &";
+
 echo "Команда: $command\n";
 
-passthru($command);
+shell_exec($command);
+echo "Сервер запущен на порту $port\n";

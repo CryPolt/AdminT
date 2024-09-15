@@ -1,11 +1,14 @@
 <?php
 require '../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+use App\src\Model\SSHConnection;
+use App\src\Service\KeyDBService;
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 $databaseId = (int)$_POST['database'];
-$keyType = $_POST['type'];
 $key = $_POST['key'];
 
 $sshHost = $_ENV['SSH_HOST'];
@@ -14,9 +17,8 @@ $sshPassword = $_ENV['SSH_PASSWORD'];
 $keydbHost = $_ENV['KEYDB_HOST'];
 $keydbPort = (int)$_ENV['KEYDB_PORT'];
 
-$sshConnection = new \App\src\Model\SSHConnection($sshHost, $sshUser, $sshPassword);
-$keydbService = new \App\src\Service\KeyDBService(
-    $sshConnection,
+$sshConnection = new SSHConnection($sshHost, $sshUser, $sshPassword);
+$keydbService = new KeyDBService(
     $keydbHost,
     $keydbPort,
     $databaseId

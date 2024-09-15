@@ -17,7 +17,9 @@ class SSHConnection
 
     public function exec(string $command): string
     {
-        $sshCommand = "sshpass -p {$this->password} ssh {$this->user}@{$this->host} '{$command}'";
+        // Используем команду ssh для выполнения команд на удаленном сервере
+        // Убедитесь, что sshpass установлен, если вы используете его
+        $sshCommand = "sshpass -p {$this->password} ssh -o StrictHostKeyChecking=no {$this->user}@{$this->host} '{$command}'";
         $output = shell_exec($sshCommand);
 
         // Логирование команды и вывода

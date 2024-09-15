@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit65efd8340e57998b0c0a4207ed4ea5c2
 {
     public static $files = array (
+        '7e9bd612cc444b3eed788ebbe46263a0' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/autoload.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -28,6 +29,12 @@ class ComposerStaticInit65efd8340e57998b0c0a4207ed4ea5c2
         array (
             'PhpOption\\' => 10,
             'ParagonIE\\ConstantTime\\' => 23,
+        ),
+        'L' => 
+        array (
+            'Laminas\\ZendFrameworkBridge\\' => 28,
+            'Laminas\\Stdlib\\' => 15,
+            'Laminas\\Authentication\\' => 23,
         ),
         'G' => 
         array (
@@ -67,6 +74,18 @@ class ComposerStaticInit65efd8340e57998b0c0a4207ed4ea5c2
         'ParagonIE\\ConstantTime\\' => 
         array (
             0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
+        ),
+        'Laminas\\ZendFrameworkBridge\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src',
+        ),
+        'Laminas\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-stdlib/src',
+        ),
+        'Laminas\\Authentication\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-authentication/src',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (
