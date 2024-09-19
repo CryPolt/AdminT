@@ -6,13 +6,19 @@ $dotenv->load();
 
 $databaseId = (int)$_GET['database'] ?? 1;
 
+$sshHost = $_ENV['SSH_HOST'];
+$sshUser = $_ENV['SSH_USER'];
+$sshPassword = $_ENV['SSH_PASSWORD'];
 $keydbHost = $_ENV['KEYDB_HOST'];
 $keydbPort = (int)$_ENV['KEYDB_PORT'];
 
+$sshConnection = new \App\src\Model\SSHConnection($sshHost, $sshUser, $sshPassword);
+
 $keydbService = new \App\src\Service\KeyDBService(
+    $sshConnection,
     $keydbHost,
     $keydbPort,
-    $databaseId 
+    $databaseId // Передаем ID базы данных
 );
 
 $type = $_GET['key'] ?? '';
